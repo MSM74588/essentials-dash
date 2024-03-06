@@ -7,6 +7,7 @@ const config = {
 			fontFamily: {
 				'header' : 'Space Grotesk Variable, sans-serif',
 				'montserrat' : 'Montserrat Variable, sans-serif',
+				'chivomono' : 'Chivo Mono Variable, monospace',
 			}
 		}
 	},

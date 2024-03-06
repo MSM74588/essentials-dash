@@ -3,6 +3,7 @@
 
 	import '@fontsource-variable/space-grotesk';
 	import '@fontsource-variable/montserrat';
+	import '@fontsource-variable/chivo-mono';
 
 	import Clock from '$lib/components/widgets/clock.svelte';
 </script>

@@ -34,7 +34,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/chivo-mono": "^5.0.20",
 		"@fontsource-variable/montserrat": "^5.0.18",
-		"@fontsource-variable/space-grotesk": "^5.0.17"
+		"@fontsource-variable/space-grotesk": "^5.0.17",
+		"svelte-legos": "^0.2.2"
 	}
 }

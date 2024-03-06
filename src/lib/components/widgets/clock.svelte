@@ -3,7 +3,9 @@
 
 	import { ArrowsOutSimple } from 'phosphor-svelte';
 
-	import { fullScreenAction , portalAction} from 'svelte-legos';
+	import { portalAction } from 'svelte-legos';
+
+	import Fullscreen from 'svelte-fullscreen';
 
 	let today = new Date();
 
@@ -23,27 +25,30 @@
 	});
 
 	$: hours12 = () => {
-		let hrs = today.getHours()
-		if (hrs >= 12){
-			return hrs - 12
-		}
-		else return hrs
-	}
+		let hrs = today.getHours();
+		if (hrs >= 12) {
+			return hrs - 12;
+		} else return hrs;
+	};
 
 	// $: currentTime = today.toLocaleTimeString([], {
 	// 	hour: '2-digit',
 	// 	minute: '2-digit',
-    //     hour12: true
+	//     hour12: true
 	// })
-	
-	$: currentTime = `${hours12()}:${today.toLocaleTimeString([], { minute: '2-digit', hour12: true})}`
+
+	$: currentTime = `${hours12()}:${today.toLocaleTimeString([], { minute: '2-digit', hour12: true })}`;
 
 	$: ampm = today
 		.toLocaleTimeString('en-US', { hour12: true, hour: 'numeric', minute: 'numeric' })
 		.slice(-2);
 
-
-    $: fullTime = today.toLocaleTimeString('en-US', { hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' })
+	$: fullTime = today.toLocaleTimeString('en-US', {
+		hour12: true,
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric'
+	});
 
 	const startUpdating = () => {
 		const interval = setInterval(() => {
@@ -57,25 +62,55 @@
 
 	onDestroy(() => console.log('Component destroyed'));
 
-	function fullscreen() {
-		console.log(ref);
+
+	function fullscreenBtn() {
+		// const element = document.documentElement;
+		const element = document.getElementById('fullscreenClock');
+
 		if (!isFullscreenToggled) {
 			// @ts-ignore
-			fullScreenAction().update(ref);
-			isFullscreenToggled = true;
-		} else {
-			// @ts-ignore
-			console.log(isFullscreenToggled);
-			if (document.exitFullscreen) {
-				document.exitFullscreen();
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen();
-			} else if (document.mozCancelFullScreen) {
-				document.mozCancelFullScreen();
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen();
+
+			if (
+				!document.fullscreenElement &&
+				!document.mozFullScreenElement &&
+				!document.webkitFullscreenElement &&
+				!document.msFullscreenElement
+			) {
+				if (element.requestFullscreen) {
+					element.requestFullscreen();
+				} else if (element.mozRequestFullScreen) {
+					element.mozRequestFullScreen();
+				} else if (element.webkitRequestFullscreen) {
+					element.webkitRequestFullscreen();
+				} else if (element.msRequestFullscreen) {
+					element.msRequestFullscreen();
+				}
+				isFullscreenToggled = true;
+			} else {
+				// @ts-ignore
+				// console.log(isFullscreenToggled);
+				// if (document.exitFullscreen) {
+				// 	document.exitFullscreen();
+				// } else if (document.webkitExitFullscreen) {
+				// 	document.webkitExitFullscreen();
+				// } else if (document.mozCancelFullScreen) {
+				// 	document.mozCancelFullScreen();
+				// } else if (document.msExitFullscreen) {
+				// 	document.msExitFullscreen();
+				// }
+
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if (document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				} else if (document.msExitFullscreen) {
+					document.msExitFullscreen();
+				}
 			}
-            isFullscreenToggled = false
+
+			isFullscreenToggled = false;
 		}
 	}
 </script>
@@ -99,28 +134,27 @@
 		</div>
 	</div>
 	<div>
-		<button class="duration-150 hover:scale-125" on:click={fullscreen}>
+		<button class="duration-150 hover:scale-125" on:click={fullscreenBtn}>
 			<ArrowsOutSimple weight="bold" size={20} />
 		</button>
 	</div>
 </div>
 
 {#if isFullscreenToggled}
-	<div class="w-full h-full absolute top-0 left-0 bg-black" bind:this={ref} use:portalAction={"body"}>
-      <div class="relative h-full">
-        <div class="absolute top-0 right-0">
-            <button class="duration-150 hover:scale-125 p-6" on:click={fullscreen}>
-                <ArrowsOutSimple class="fill-white" weight="bold" size={20} />
-            </button>
-        </div>
-        <div class="flex h-full w-full  justify-center items-center" >
-            <div class="text-white">
-                <h1 class="font-montserrat text-4xl font-semibold text-neutral-300">{day}</h1>
-                <h1 class="font-chivomono text-9xl font-bold">{fullTime}</h1>
-                <h1 class="font-montserrat text-2xl font-semibold text-neutral-300">{currentDate}</h1>
-
-            </div>
-        </div>
-      </div>
-    </div>
+	<div class="absolute left-0 top-0 h-full w-full bg-black" use:portalAction={'body'} id="fullscreenClock">
+		<div class="relative h-full">
+			<div class="absolute right-0 top-0">
+				<button class="p-6 duration-150 hover:scale-125" on:click={fullscreenBtn}>
+					<ArrowsOutSimple class="fill-white" weight="bold" size={20} />
+				</button>
+			</div>
+			<div class="flex h-full w-full items-center justify-center">
+				<div class="text-white">
+					<h1 class="font-montserrat text-4xl font-semibold text-neutral-300">{day}</h1>
+					<h1 class="font-chivomono text-9xl font-bold">{fullTime}</h1>
+					<h1 class="font-montserrat text-2xl font-semibold text-neutral-300">{currentDate}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 {/if}

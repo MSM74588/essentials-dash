@@ -36,7 +36,7 @@
     //     hour12: true
 	// })
 	
-	$: currentTime = `${hours12()}:${today.getMinutes()}`
+	$: currentTime = `${hours12()}:${today.toLocaleTimeString([], { minute: '2-digit', hour12: true})}`
 
 	$: ampm = today
 		.toLocaleTimeString('en-US', { hour12: true, hour: 'numeric', minute: 'numeric' })

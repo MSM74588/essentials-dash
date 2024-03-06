@@ -1,6 +1,8 @@
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-auto';
 
+import { phosphorSvelteOptimize } from "phosphor-svelte/preprocessor"
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -10,7 +12,7 @@ const config = {
 		adapter: adapter()
 	},
 
-	preprocess: [vitePreprocess({})]
+	preprocess: [phosphorSvelteOptimize(), vitePreprocess({})]
 };
 
 export default config;

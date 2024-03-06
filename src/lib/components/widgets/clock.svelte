@@ -3,7 +3,7 @@
 
 	import { ArrowsOutSimple } from 'phosphor-svelte';
 
-	import { portalAction } from 'svelte-legos';
+	import { portalAction, fullScreenAction } from 'svelte-legos';
 
 	import Fullscreen from 'svelte-fullscreen';
 
@@ -62,42 +62,38 @@
 
 	onDestroy(() => console.log('Component destroyed'));
 
-
 	function fullscreenBtn() {
 		// const element = document.documentElement;
-		const element = document.getElementById('fullscreenClock');
 
 		if (!isFullscreenToggled) {
 			// @ts-ignore
 
-			
-				isFullscreenToggled = true;
-			} else {
-				// @ts-ignore
-				// console.log(isFullscreenToggled);
-				// if (document.exitFullscreen) {
-				// 	document.exitFullscreen();
-				// } else if (document.webkitExitFullscreen) {
-				// 	document.webkitExitFullscreen();
-				// } else if (document.mozCancelFullScreen) {
-				// 	document.mozCancelFullScreen();
-				// } else if (document.msExitFullscreen) {
-				// 	document.msExitFullscreen();
-				// }
+			document.documentElement.requestFullscreen();
+			isFullscreenToggled = true;
+		} else {
+			// @ts-ignore
+			// console.log(isFullscreenToggled);
+			// if (document.exitFullscreen) {
+			// 	document.exitFullscreen();
+			// } else if (document.webkitExitFullscreen) {
+			// 	document.webkitExitFullscreen();
+			// } else if (document.mozCancelFullScreen) {
+			// 	document.mozCancelFullScreen();
+			// } else if (document.msExitFullscreen) {
+			// 	document.msExitFullscreen();
+			// }
 
-				if (document.exitFullscreen) {
-					document.exitFullscreen();
-				} else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
-				} else if (document.webkitExitFullscreen) {
-					document.webkitExitFullscreen();
-				} else if (document.msExitFullscreen) {
-					document.msExitFullscreen();
-				}
-			
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen();
+			} else if (document.webkitExitFullscreen) {
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen();
+			}
 
 			isFullscreenToggled = false;
-			
 		}
 	}
 </script>
@@ -132,6 +128,7 @@
 		class="absolute left-0 top-0 h-full w-full bg-black"
 		use:portalAction={'body'}
 		id="fullscreenClock"
+		bind:this={ref}
 	>
 		<div class="relative h-full">
 			<div class="absolute right-0 top-0">

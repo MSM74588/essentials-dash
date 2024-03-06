@@ -70,21 +70,7 @@
 		if (!isFullscreenToggled) {
 			// @ts-ignore
 
-			if (
-				!document.fullscreenElement &&
-				!document.mozFullScreenElement &&
-				!document.webkitFullscreenElement &&
-				!document.msFullscreenElement
-			) {
-				if (element.requestFullscreen) {
-					element.requestFullscreen();
-				} else if (element.mozRequestFullScreen) {
-					element.mozRequestFullScreen();
-				} else if (element.webkitRequestFullscreen) {
-					element.webkitRequestFullscreen();
-				} else if (element.msRequestFullscreen) {
-					element.msRequestFullscreen();
-				}
+			
 				isFullscreenToggled = true;
 			} else {
 				// @ts-ignore
@@ -108,9 +94,10 @@
 				} else if (document.msExitFullscreen) {
 					document.msExitFullscreen();
 				}
-			}
+			
 
 			isFullscreenToggled = false;
+			
 		}
 	}
 </script>
@@ -141,7 +128,11 @@
 </div>
 
 {#if isFullscreenToggled}
-	<div class="absolute left-0 top-0 h-full w-full bg-black" use:portalAction={'body'} id="fullscreenClock">
+	<div
+		class="absolute left-0 top-0 h-full w-full bg-black"
+		use:portalAction={'body'}
+		id="fullscreenClock"
+	>
 		<div class="relative h-full">
 			<div class="absolute right-0 top-0">
 				<button class="p-6 duration-150 hover:scale-125" on:click={fullscreenBtn}>

@@ -67,32 +67,10 @@
 
 		if (!isFullscreenToggled) {
 			// @ts-ignore
-
 			document.documentElement.requestFullscreen();
 			isFullscreenToggled = true;
 		} else {
-			// @ts-ignore
-			// console.log(isFullscreenToggled);
-			// if (document.exitFullscreen) {
-			// 	document.exitFullscreen();
-			// } else if (document.webkitExitFullscreen) {
-			// 	document.webkitExitFullscreen();
-			// } else if (document.mozCancelFullScreen) {
-			// 	document.mozCancelFullScreen();
-			// } else if (document.msExitFullscreen) {
-			// 	document.msExitFullscreen();
-			// }
-
-			if (document.exitFullscreen) {
-				document.exitFullscreen();
-			} else if (document.mozCancelFullScreen) {
-				document.mozCancelFullScreen();
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen();
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen();
-			}
-
+			document.exitFullscreen();
 			isFullscreenToggled = false;
 		}
 	}

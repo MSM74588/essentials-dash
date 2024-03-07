@@ -5,6 +5,8 @@
 
 	import { portalAction, fullScreenAction } from 'svelte-legos';
 
+	import { hotKeyAction } from "svelte-legos";
+
 	import Fullscreen from 'svelte-fullscreen';
 
 	let today = new Date();
@@ -95,7 +97,7 @@
 		</div>
 	</div>
 	<div>
-		<button class="duration-150 hover:scale-125" on:click={fullscreenBtn}>
+		<button class="duration-150 hover:scale-125" on:click={fullscreenBtn} use:hotKeyAction={{ shift: true, code: 'KeyF' }}>
 			<ArrowsOutSimple weight="bold" size={20} />
 		</button>
 	</div>

@@ -1,5 +1,5 @@
 <script>
-	import { SignIn } from 'phosphor-svelte'
+	import { SignIn , SidebarSimple} from 'phosphor-svelte'
 	
 	import Clock from '$lib/components/widgets/clock.svelte';
 	export let data;
@@ -25,12 +25,12 @@
 </script>
 
 
-<div class="flex h-screen w-screen flex-row bg-neutral-900">
-	<div class="flex h-full w-[450px] flex-row bg-neutral-800">
-		<div id="header" class="h-full w-20 bg-[#3B854B] py-4">
-			<div class="flex h-full flex-col items-center">
-				<div class="h-full flex-grow">
-					<div>
+<div class="flex h-dvh w-dvw flex-row bg-neutral-900">
+	<div class="flex h-full w-[450px] flex-col md:flex-row bg-neutral-800">
+		<div id="header" class="md:h-full w-full md:w-20 bg-[#3B854B] px-3 md:px-0 py-2 md:py-4">
+			<div class="flex h-full flex-row md:flex-col items-center gap-2">
+				<div class="h-full md:flex-grow">
+					
 						<!-- TODO: Refactor here -->
 
 						{#if !data.user}
@@ -53,7 +53,7 @@
 								</div>
 
 								<span slot="trigger">
-									<button class="outline outline-2 outline-solid hover:outline-4 outline-white outline-offset-0 hover:outline-offset-4  transition-all duration-100 rounded-full"
+									<button class="flex items-center justify-center outline outline-2 outline-solid hover:outline-4 outline-white outline-offset-0 hover:outline-offset-4  transition-all duration-100 rounded-full"
 									on:click={() => {
 										toggleDialog;
 									}}
@@ -63,13 +63,16 @@
 								</span>
 							</Logoutdrawer>
 						{/if}
-					</div>
+						
 				</div>
 				<h1
-					class=" origin-center -translate-y-20 -rotate-90 font-header text-4xl font-bold dark:text-white"
+					class=" origin-center md:-translate-y-20 md:-rotate-90 font-header text-4xl font-bold dark:text-white flex-grow md:flex-grow-0"
 				>
 					Dashboard
 				</h1>
+				<button class="md:hidden h-11 w-11 flex items-center justify-center border-2 border-neutral-200 border-solid  rounded-lg active:border-4 transition-ALL duration-100 ">
+					<SidebarSimple weight="bold" class="h-6 w-6"/>
+				</button>
 			</div>
 		</div>
 		<div id="sidebar-content" class="flex-grow px-6 py-5">

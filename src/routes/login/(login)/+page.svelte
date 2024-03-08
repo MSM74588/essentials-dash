@@ -5,12 +5,12 @@
     // $: image_class = image_url ? 'image_url_class' : '';
 </script>
 
-<div class="h-dvh w-dvw  bg-neutral-950 dark:text-white py-5 px-5">
-	<div class=" flex-row flex w-full h-full rounded-lg border border-1 border-neutral-600 divide-solid divide-neutral-600 divide-x-[1px]">
-        <div class="flex-grow bg-neutral-800 rounded-l-lg overflow-clip image-area image_area_url" style="--image-url: {css_image_string}">
+<div class="h-dvh w-dvw  bg-neutral-950 dark:text-white md:py-5 md:px-5">
+	<div class=" flex-row flex w-full h-full rounded-lg md:border md:border-1 border-neutral-600 divide-solid divide-neutral-600 md:divide-x-[1px]">
+        <div class="hidden md:block flex-grow bg-neutral-800 rounded-l-lg overflow-clip image-area image_area_url" style="--image-url: {css_image_string}">
             
         </div>
-	<div class="flex w-[40%] items-center justify-center">
+	<div class="flex md:w-[40%] scale-75 p-4 items-center justify-center">
 			
 
             <form action="?/login" method="POST" class="flex flex-col items-center gap-y-5 lg:px-[25%]">

@@ -10,7 +10,7 @@
         <div class="hidden md:block flex-grow bg-neutral-800 rounded-l-lg overflow-clip image-area image_area_url" style="--image-url: {css_image_string}">
             
         </div>
-	<div class="flex md:w-[40%] scale-75 p-4 items-center justify-center">
+	<div class="flex md:w-[40%] scale-75 md:scale-100 p-4 items-center justify-center">
 			
 
             <form action="?/login" method="POST" class="flex flex-col items-center gap-y-5 lg:px-[25%]">

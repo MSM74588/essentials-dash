@@ -28,7 +28,7 @@
 
 	$: hours12 = () => {
 		let hrs = today.getHours();
-		if (hrs >= 12) {
+		if (hrs >= 13) {
 			return hrs - 12;
 		} else return hrs;
 	};

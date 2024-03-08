@@ -37,6 +37,7 @@
 		"@fontsource-variable/chivo-mono": "^5.0.20",
 		"@fontsource-variable/montserrat": "^5.0.18",
 		"@fontsource-variable/space-grotesk": "^5.0.17",
+		"pocketbase": "^0.21.1",
 		"svelte-fullscreen": "^2.0.0",
 		"svelte-legos": "^0.2.2"
 	}

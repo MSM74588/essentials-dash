@@ -28,7 +28,7 @@
 {#if $isDesktop}
 	<Dialog.Root bind:open>
 		<Dialog.Trigger>
-            <slot />
+            <slot  name="trigger"/>
 		</Dialog.Trigger>
 		<Dialog.Content class="sm:max-w-[425px]">
 			<Dialog.Header>
@@ -45,7 +45,7 @@
 {:else}
 	<Drawer.Root bind:open>
 		<Drawer.Trigger>
-			<slot />
+			<slot  name="trigger"/>
 		</Drawer.Trigger>
 		<Drawer.Content>
 			<Drawer.Header class="text-left">

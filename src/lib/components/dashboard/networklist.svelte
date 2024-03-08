@@ -2,7 +2,7 @@
     // import Check from "svelte-radix/Check.svelte";
     // import CaretSort from "svelte-radix/CaretSort.svelte";
 
-    import { Check } from 'phosphor-svelte'
+    import { Check , CaretUpDown} from 'phosphor-svelte'
     import * as Command from "$lib/components/ui/command/index.js";
     import * as Popover from "$lib/components/ui/popover/index.js";
     import { Button } from "$lib/components/ui/button/index.js";
@@ -60,10 +60,10 @@
         class="w-full justify-between rounded-lg"
       >
         {selectedValue}
-        <!-- <CaretSort class="ml-2 h-4 w-4 shrink-0 opacity-50" /> -->
+        <CaretUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </Popover.Trigger>
-    <Popover.Content class="w-[200px] p-0">
+    <Popover.Content class="w-[16vw] p-0">
       <Command.Root>
         <Command.Input placeholder="Search network..." class="h-9" />
         <Command.Empty>No network found.</Command.Empty>

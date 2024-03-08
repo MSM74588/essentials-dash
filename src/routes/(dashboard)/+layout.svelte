@@ -1,4 +1,6 @@
 <script>
+	import { SignIn } from 'phosphor-svelte'
+	
 	import Clock from '$lib/components/widgets/clock.svelte';
 	export let data;
 
@@ -34,8 +36,10 @@
 						{#if !data.user}
 							<!-- <div class="aspect-square w-full rounded-full bg-red-500">no user</div> -->
 							
-								<button on:click={() => goto('/login')}>
-									<Avatar username="User" url="" />
+								<button on:click={() => goto('/login')} class="rounded-full group">
+									<div class="bg-neutral-200 h-12 w-12 rounded-full flex items-center justify-center  outline outline-0 outline-solid group-hover:outline-2 outline-white outline-offset-0 group-hover:outline-offset-4  transition-all duration-100">
+										<SignIn weight="bold" class="fill-neutral-800 h-6 w-6 group-hover:w-7 group-hover:h-7  transition-all duration-100"/>
+									</div>
 								</button>
 							
 						{:else}
@@ -49,7 +53,7 @@
 								</div>
 
 								<span slot="trigger">
-									<button
+									<button class="outline outline-2 outline-solid hover:outline-4 outline-white outline-offset-0 hover:outline-offset-4  transition-all duration-100 rounded-full"
 									on:click={() => {
 										toggleDialog;
 									}}

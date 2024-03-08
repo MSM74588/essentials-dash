@@ -21,27 +21,6 @@
 	// } = createDropdownMenu();
 </script>
 
-<!-- <div
-	use:melt={$menu}
-	class="border-1 font-base flex w-60 flex-col divide-y-2 divide-solid divide-neutral-700 rounded-lg border border-neutral-700 bg-neutral-800 text-white"
->
-	<div use:melt={$item} class="p-1">
-		<div class="context-item">
-			<h1 class="font-bold">{data.user.username}</h1>
-			<h2 class="text-sm">{data.user.id}</h2>
-		</div>
-	</div>
-
-	<div use:melt={$item} class="p-1">
-		<div>
-			<form action="/logout" method="POST">
-				<button class="context-item-button" type="submit">
-					<h1>Logout</h1>
-				</button>
-			</form>
-		</div>
-	</div>
-</div> -->
 
 <div class="flex h-screen w-screen flex-row bg-neutral-900">
 	<div class="flex h-full w-[450px] flex-row bg-neutral-800">

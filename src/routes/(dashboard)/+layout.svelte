@@ -10,6 +10,7 @@
 	import {Label} from '$lib/components/ui/label';
 
 	import Networklist from '$lib/components/dashboard/networklist.svelte';
+	import { goto } from '$app/navigation';
 
 	let avatar_url = 'https://avatars.githubusercontent.com/u/48552989?v=4';
 	// let avatar_url = '';
@@ -31,12 +32,17 @@
 						<!-- TODO: Refactor here -->
 
 						{#if !data.user}
-							<div class="aspect-square w-full rounded-full bg-red-500">no user</div>
+							<!-- <div class="aspect-square w-full rounded-full bg-red-500">no user</div> -->
+							
+								<button on:click={() => goto('/login')}>
+									<Avatar username="User" url="" />
+								</button>
+							
 						{:else}
 							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<Logoutdrawer username={data.user.name} email={data.user.email}>
 								<div slot="content" class="grid items-start gap-4">
-									<Button variant="ghost">Settings</Button>
+									<Button variant="outline">Settings</Button>
 									<form action="/logout" method="POST" class="w-full">
 										<Button type="submit" variant="destructive" class="w-full">Logout</Button>
 									</form>

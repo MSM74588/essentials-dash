@@ -34,7 +34,7 @@
 	<span use:melt={$fallback} class="text-magnum-700 text-3xl font-medium">{username.split(' ').map(name => name[0]).join('').toUpperCase()}</span>
 </div> -->
 
-<Avatar.Root class="h-12 w-12">
+<Avatar.Root class="h-9 w-9 md:h-12 md:w-12">
 	<Avatar.Image src={url} alt={username} />
 	<Avatar.Fallback>{username.split(' ').map(name => name[0]).join('').toUpperCase()}</Avatar.Fallback>
   </Avatar.Root>

@@ -1,5 +1,5 @@
 <script>
-    let image_url = "https://images.unsplash.com/photo-1552564835-07e1379e9708?q=80&w=1950&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    let image_url = "https://images.unsplash.com/photo-1552564835-07e1379e9708"
     let css_image_string = `url(${image_url})`
     // let image_url = ""
     // $: image_class = image_url ? 'image_url_class' : '';

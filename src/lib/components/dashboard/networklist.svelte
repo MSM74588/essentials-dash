@@ -63,7 +63,7 @@
         <CaretUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </Popover.Trigger>
-    <Popover.Content class="w-[16vw] p-0">
+    <Popover.Content class="md:w-[16vw] w-[90vw] p-0">
       <Command.Root>
         <Command.Input placeholder="Search network..." class="h-9" />
         <Command.Empty>No network found.</Command.Empty>

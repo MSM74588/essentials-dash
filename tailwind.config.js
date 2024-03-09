@@ -62,6 +62,7 @@ const config = {
 			}
 		}
 	},
+	plugins: [require('tailwindcss-safe-area'),]
 };
 
 export default config;

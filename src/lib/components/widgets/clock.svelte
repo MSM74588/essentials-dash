@@ -81,7 +81,7 @@
 <!-- <div class="text-white">{today}</div> -->
 
 <div
-	class="flex w-full flex-row rounded-[11px] border-2 border-[#B62100] bg-[#EF3F18] px-7 py-5 font-montserrat dark:text-white"
+	class="flex w-full flex-row rounded-[11px] border-2 border-widget-border bg-widget px-7 py-5 font-montserrat dark:text-white"
 >
 	<div class="flex-grow">
 		<div class="flex flex-col gap-2">

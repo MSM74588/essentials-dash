@@ -1,5 +1,5 @@
 <script>
-	import { SignIn, SidebarSimple, HardDrives } from 'phosphor-svelte';
+	import { SignIn, SidebarSimple, Palette } from 'phosphor-svelte';
 
 	import Clock from '$lib/components/widgets/clock.svelte';
 	export let data;
@@ -7,6 +7,8 @@
 	import Avatar from '$lib/components/dashboard/avatar.svelte';
 
 	import Logoutdrawer, { toggleDialog } from '$lib/components/dashboard/logoutdrawer.svelte';
+	import Themepickerdialog from '$lib/components/dashboard/themepickerdialog.svelte';
+
 	import { Button } from '$lib/components/ui/button';
 
 	import { Label } from '$lib/components/ui/label';
@@ -15,17 +17,12 @@
 	import { goto } from '$app/navigation';
 
 	let avatar_url = 'https://avatars.githubusercontent.com/u/48552989?v=4';
-	// let avatar_url = '';
-
-	// import { createDropdownMenu, melt } from '@melt-ui/svelte';
-	// import Button from '$lib/components/ui/button/button.svelte';
-	// const {
-	// 	elements: { menu, item, trigger, arrow }
-	// } = createDropdownMenu();
 
 	import { fly } from 'svelte/transition'
 	import { quadInOut } from 'svelte/easing'
 	import { windowSizeStore } from 'svelte-legos';
+
+
 
 
 	let sidebarShown = true
@@ -35,25 +32,25 @@
 
 <div class="absolute bottom-3  right-3 block sm:hidden z-50">
 	<div class="pb-safe">
-		<button class="bg-[#3B854B] flex flex-row items-center justify-center gap-3 px-5 py-4 rounded-xl drop-shadow-xl" on:click={() => {sidebarShown = !sidebarShown}}>
+		<button class="bg-fab flex flex-row items-center justify-center gap-3 px-5 py-4 rounded-xl drop-shadow-xl" on:click={() => {sidebarShown = !sidebarShown}}>
 			{#if sidebarShown}
 			<span>
-				<SidebarSimple weight="fill" class="fill-emerald-300 h-4 w-4"/>
+				<SidebarSimple weight="fill" class="fill-fab-foreground h-4 w-4"/>
 			</span>
 			{:else}
 			<span>
-				<SidebarSimple weight="regular" class="fill-emerald-300 h-4 w-4" />
+				<SidebarSimple weight="regular" class="fill-fab-foreground h-4 w-4" />
 			</span>
 			{/if}
-			<p class="text-base text-emerald-300">Sidebar</p>
+			<p class="text-base text-fab-foreground">Sidebar</p>
 		</button>
 	</div>
 </div>
 
-<div class="flex h-dvh w-dvw flex-row bg-neutral-900">
+<div class="flex h-dvh w-dvw flex-row bg-background">
 	{#if sidebarShown}
-	<div class="flex h-full w-[450px] flex-col bg-neutral-800 md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
-		<div id="header" class="w-full sm:bg-[#3B854B] bg-transparent px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
+	<div class="flex h-full w-[450px] flex-col bg-muted md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
+		<div id="header" class="w-full sm:bg-sidebar-accent bg-transparent px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
 			<div class="flex h-full flex-row items-center gap-2 md:flex-col">
 				<div class="h-full md:flex-grow">
 					<!-- TODO: Refactor here -->
@@ -85,7 +82,7 @@
 								<button
 									class="outline-solid flex items-center justify-center rounded-full outline outline-2 outline-offset-0 outline-white transition-all duration-100 hover:outline-4 hover:outline-offset-4"
 									on:click={() => {
-										toggleDialog;
+										triggertheme;
 									}}
 								>
 									<Avatar username={data.user.name} url={avatar_url} />
@@ -95,7 +92,7 @@
 					{/if}
 				</div>
 				<h1
-					class=" hidden flex-grow origin-center font-header text-4xl font-bold dark:text-white md:block md:flex-grow-0 md:-translate-y-20 md:-rotate-90"
+					class=" hidden flex-grow origin-center font-header text-4xl font-bold text-text-primary md:block md:flex-grow-0 md:-translate-y-20 md:-rotate-90"
 				>
 					Dashboard
 				</h1>
@@ -108,18 +105,16 @@
 				</div>
 
 				<div class="flex w-full justify-end">
-					<button
-						class="transition-all flex h-11 w-11 items-center justify-center rounded-full border-0 border-solid  border-neutral-200 duration-100 active:border-4 md:hidden"
-					>
-						<HardDrives weight="duotone" class="h-6 w-6 fill-neutral-300" />
-					</button>
+					
+
+					<Themepickerdialog />
 				</div>
 			</div>
 		</div>
 		<div id="sidebar-content" class="flex-grow ">
 			<div class="flex flex-col gap-3">
 				<div class="md:bg-transparent  px-6 py-5 flex flex-col gap-5 rounded-b-lg" id="primary-widgets">
-					<h1 class="text-white font-chivomono font-bold text-3xl">Dashboard</h1>
+					<h1 class="text-text-primary font-chivomono font-bold text-3xl md:hidden">Dashboard</h1>
 					<!-- TODO: make it dynamic to page name -->
 					
 					<Clock />
@@ -137,3 +132,4 @@
 		<slot />
 	</div>
 </div>
+

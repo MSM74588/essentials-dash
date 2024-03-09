@@ -49,8 +49,8 @@
 
 <div class="flex h-dvh w-dvw flex-row bg-background">
 	{#if sidebarShown}
-	<div class="flex h-full w-[450px] flex-col bg-muted md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
-		<div id="header" class="w-full sm:bg-sidebar-accent bg-transparent px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
+	<div class="flex h-full w-[450px] flex-col bg-background md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
+		<div id="header" class="w-full sm:bg-sidebar-accent bg-muted px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
 			<div class="flex h-full flex-row items-center gap-2 md:flex-col">
 				<div class="h-full md:flex-grow">
 					<!-- TODO: Refactor here -->
@@ -60,7 +60,7 @@
 
 						<button on:click={() => goto('/login')} class="group rounded-full">
 							<div
-								class="outline-solid flex h-12 w-12 items-center justify-center rounded-full bg-neutral-200 outline outline-0 outline-offset-0 outline-white transition-all duration-100 group-hover:outline-2 group-hover:outline-offset-4"
+								class="outline-solid flex h-12 w-12 items-center justify-center rounded-full bg-text-secondary outline outline-0 outline-offset-0 outline-text-secondary transition-all duration-100 group-hover:outline-2 group-hover:outline-offset-4"
 							>
 								<SignIn
 									weight="bold"
@@ -99,8 +99,8 @@
 
 				<div class="block md:hidden ">
 					{#if data.user}
-					<h1 class="font-montserrat text-xs leading-3 font-semibold text-neutral-200">Welcome back,</h1>
-					<h1 class="font-montserrat text-base font-bold">{data.user.name}</h1>
+					<h1 class="font-montserrat text-xs leading-3 font-semibold text-text-secondary">Welcome back,</h1>
+					<h1 class="font-montserrat text-base font-bold text-text-primary">{data.user.name}</h1>
 					{/if}
 				</div>
 
@@ -113,14 +113,14 @@
 		</div>
 		<div id="sidebar-content" class="flex-grow ">
 			<div class="flex flex-col gap-3">
-				<div class="md:bg-transparent  px-6 py-5 flex flex-col gap-5 rounded-b-lg" id="primary-widgets">
-					<h1 class="text-text-primary font-chivomono font-bold text-3xl md:hidden">Dashboard</h1>
+				<div class="md:bg-transparent bg-muted  px-6 py-5 flex flex-col gap-5 rounded-b-lg" id="primary-widgets">
+					<h1 class="text-text-primary font-montserrat font-bold text-3xl md:hidden">Dashboard</h1>
 					<!-- TODO: make it dynamic to page name -->
 					
 					<Clock />
 
 				<div class="flex flex-col gap-1">
-					<Label>Network</Label>
+					<Label class="text-text-primary">Network</Label>
 					<Networklist></Networklist>
 				</div>
 				</div>

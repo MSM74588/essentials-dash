@@ -1,13 +1,19 @@
 
 
 <script>
+	// @ts-ignore
 	import * as Dialog from '$lib/components/ui/dialog/index.ts';
 	// @ts-ignore
 	import * as Drawer from '$lib/components/ui/drawer/index.ts';
+	// @ts-ignore
 	import { Label } from '$lib/components/ui/label/index.ts';
+	// @ts-ignore
 	import { Button } from '$lib/components/ui/button/index.ts';
+
 	import { mediaQuery } from 'svelte-legos';
 	const isDesktop = mediaQuery('(min-width: 768px)');
+
+
 
 	import { Palette } from 'phosphor-svelte'
 	
@@ -26,9 +32,9 @@
 <!-- <button on:click={() => (dialogopen = true)}>Open Dialog</button> -->
 
 <button on:click={() => (dialogopen = true)}
-						class="transition-all flex h-11 w-11 items-center justify-center rounded-full border-0 border-solid  border-neutral-200 duration-100 active:border-4 md:hidden"
+						class="transition-all flex h-11 w-11 items-center justify-center rounded-full border-0 border-solid  border-muted-foreground duration-100 active:border-4 md:hidden"
 					>
-						<Palette weight="duotone" class="h-6 w-6 fill-neutral-300" />
+						<Palette weight="duotone" class="h-6 w-6 fill-text-secondary" />
 					</button>
 
 {#if $isDesktop}
@@ -60,6 +66,7 @@
 
 
                 <Button on:click={() => {  document.querySelector("html")?.setAttribute("data-theme", "dracula"); }}>Dracula</Button>
+				<Button on:click={() => {}}>Switch Dark/Light Mode</Button>
 
 
             </div>

@@ -90,8 +90,8 @@
 				<h1 class="text-base font-bold leading-[1.1em]">{currentDate}</h1>
 			</div>
 			<div class="flex flex-row items-baseline gap-0">
-				<h1 class="inline text-5xl font-bold">{currentTime}</h1>
-				<h1 class="inline text-3xl font-bold">{ampm.toUpperCase()}</h1>
+				<h1 class="inline text-7xl md:text-5xl font-bold">{currentTime}</h1>
+				<h1 class="inline text-4xl md:text-3xl font-bold">{ampm.toUpperCase()}</h1>
 			</div>
 			<h1>Event Countdown</h1>
 		</div>

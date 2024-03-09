@@ -18,7 +18,11 @@ const config = {
 				border: "var(--border) ",
 				input: "var(--input) ",
 				ring: "var(--ring) ",
-				background: "var(--background) ",
+				
+				background: {
+					DEFAULT: "var(--background)",
+					secondary: "var(--background-secondary)"
+				},
 				foreground: "var(--foreground) ",
 				primary: {
 					DEFAULT: "var(--primary) ",
@@ -58,7 +62,8 @@ const config = {
 
 				},
 				text: {
-					primary: "var(--text-primary)"
+					primary: "var(--text-primary)",
+					secondary: "var(--text-secondary)"
 				},
 				sidebar: {
 					accent: "var(--sidebar-accent)"

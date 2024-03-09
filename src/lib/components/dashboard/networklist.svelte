@@ -57,7 +57,7 @@
         variant="outline"
         role="combobox"
         aria-expanded={open}
-        class="w-full justify-between rounded-lg"
+        class="w-full justify-between rounded-lg text-text-secondary bg-primary-foreground"
       >
         {selectedValue}
         <CaretUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />

@@ -2,37 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* REMINDER: FOLLOW THE ADW NAMED COLORS CONVENTION FOR EASIER NAMED COLORS */
+/* https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1.0/named-colors.html */
+/* Gradience from flathub is kinda useful */
+
+
 @layer base {
   :root {
-    --background: hsl(0 0% 3.9%);
+
+    /* LIGHT MODE DEFAULTS */
+
+    --background: #f2f1f6;
+    --background-secondary: #ebebeb;
+
     --foreground: hsl(0 0% 3.9%);
- 
+
     --muted: hsl(0 0% 96.1%);
     --muted-foreground: hsl(0 0% 45.1%);
- 
+
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
- 
+
     --card: hsl(0 0% 100%);
     --card-foreground: hsl(0 0% 3.9%);
- 
+
     --border: hsl(0 0% 89.8%);
     --input: hsl(0 0% 89.8%);
- 
+
     --primary: hsl(0 0% 9%);
-    --primary-foreground: hsl(0 0% 98%);
- 
-    --secondary: hsl(0 0% 96.1%);
+    --primary-foreground: hsl(0, 0%, 85%);
+
+    --secondary: hsl(0, 0%, 9%);
     --secondary-foreground: hsl(0 0% 9%);
- 
+
     --accent: hsl(0 0% 96.1%);
     --accent-foreground: hsl(0 0% 9%);
- 
+
     --destructive: hsl(0 72.2% 50.6%);
     --destructive-foreground: hsl(0 0% 98%);
- 
+
     --ring: hsl(0 0% 3.9%);
- 
+
     --radius: 0.5rem;
 
     --sidebar-accent: #3B854B;
@@ -43,45 +53,97 @@
     --accent-widget: #EF3F18;
     --accent-widget-border: #B62100;
 
-    --text-primary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: rgb(39, 39, 39);
+
+
+
   }
- 
-  .dark {
+
+  /* .dark {
     --background: hsl(0, 0%, 8%);
     --foreground: hsl(0 0% 98%);
- 
+
     --muted: hsl(0 0% 14.9%);
     --muted-foreground: hsl(0 0% 63.9%);
- 
+
     --popover: hsl(0 0% 3.9%);
     --popover-foreground: hsl(0 0% 98%);
- 
+
     --card: hsl(0 0% 3.9%);
     --card-foreground: hsl(0 0% 98%);
- 
+
     --border: hsl(0, 0%, 16%);
     --input: hsl(0 0% 14.9%);
- 
+
     --primary: hsl(0 0% 98%);
     --primary-foreground: hsl(0 0% 9%);
- 
+
     --secondary: hsl(0 0% 14.9%);
     --secondary-foreground: hsl(0 0% 98%);
- 
+
     --accent: hsl(0 0% 14.9%);
     --accent-foreground: hsl(0 0% 98%);
- 
+
     --destructive: hsl(0, 77%, 45%);
     --destructive-foreground: hsl(0 0% 98%);
- 
+
     --ring: 0 0% 83.1%;
+
+    --text-primary: #ffffff;
+    --text-secondary: rgb(229 229 229);
+
+
+
+  } */
+
+
+  @media (prefers-color-scheme: dark) {
+
+    /* DARK MODE DEFAULTS */
+
+    :root {
+      --background: hsl(0, 0%, 8%);
+      --foreground: hsl(0 0% 98%);
+
+      --muted: hsl(0 0% 14.9%);
+      --muted-foreground: hsl(0 0% 63.9%);
+
+      --popover: hsl(0 0% 3.9%);
+      --popover-foreground: hsl(0 0% 98%);
+
+      --card: hsl(0 0% 3.9%);
+      --card-foreground: hsl(0 0% 98%);
+
+      --border: hsl(0, 0%, 16%);
+      --input: hsl(0 0% 14.9%);
+
+      --primary: hsl(0 0% 98%);
+      --primary-foreground: hsl(0 0% 9%);
+
+      --secondary: hsl(0 0% 14.9%);
+      --secondary-foreground: hsl(0 0% 98%);
+
+      --accent: hsl(0 0% 14.9%);
+      --accent-foreground: hsl(0 0% 98%);
+
+      --destructive: hsl(0, 77%, 45%);
+      --destructive-foreground: hsl(0 0% 98%);
+
+      --ring: 0 0% 83.1%;
+
+      --text-primary: #ffffff;
+      --text-secondary: rgb(229 229 229);
+    }
+
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-white;
   }
@@ -89,26 +151,45 @@
 
 @layer components {
   .context-item-button {
-      @apply px-2 py-1 hover:bg-neutral-700 rounded w-full text-left
+    @apply px-2 py-1 hover:bg-neutral-700 rounded w-full text-left
   }
+
   .context-item {
-      @apply px-2 py-1 rounded w-full text-left
+    @apply px-2 py-1 rounded w-full text-left
   }
+
   .context-container {
-      @apply 
+    @apply
   }
 }
 
 /* 3B854B */
 
+
+
 html[data-theme="dracula"] {
-  --sidebar-accent: #7d2eed;
-  --accent-widget: #4e1cc2;
-  --accent-widget-border: #001bb6;
+  --sidebar-accent: #c061cb;
+  --accent-widget: #9141ac;
+  --accent-widget-border: #813d9c;
 
+  --muted: #2d2541;
 
-  }
+  --background: #241f31;
+  --background-secondary: #353141;
 
-  html[data-theme="theme2"] {
-    --color-primary: #f4cc70;
-  }
+  --accent-fab: #9141ac;
+  --accent-fab-foreground: #dbb1db;
+
+  --text-primary: #ffffff;
+  --text-secondary: rgb(229 229 229);
+
+  --primary: hsl(0 0% 98%);
+  --primary-foreground: #1e192b;
+
+  --destructive: #c01c28;
+
+}
+
+html[data-theme="theme2"] {
+  --color-primary: #f4cc70;
+}

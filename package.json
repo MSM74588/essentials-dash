@@ -44,7 +44,6 @@
 		"clsx": "^2.1.0",
 		"cmdk-sv": "^0.0.15",
 		"lucide-svelte": "^0.352.0",
-		"mode-watcher": "^0.2.2",
 		"pocketbase": "^0.21.1",
 		"svelte-fullscreen": "^2.0.0",
 		"svelte-legos": "^0.2.2",

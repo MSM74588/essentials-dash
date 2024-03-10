@@ -49,8 +49,8 @@
 
 <div class="flex h-dvh w-dvw flex-row bg-background">
 	{#if sidebarShown}
-	<div class="flex h-full w-[450px] flex-col bg-background md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
-		<div id="header" class="w-full sm:bg-sidebar-accent bg-muted px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
+	<div class="flex h-full w-[450px] flex-col bg-background-muted md:flex-row" transition:fly={{x:-$size.width, easing: quadInOut, duration: 250}}>
+		<div id="header" class="w-full sm:bg-sidebar-accent px-6 py-5 md:h-full md:w-20 md:px-0 md:py-4">
 			<div class="flex h-full flex-row items-center gap-2 md:flex-col">
 				<div class="h-full md:flex-grow">
 					<!-- TODO: Refactor here -->
@@ -113,14 +113,14 @@
 		</div>
 		<div id="sidebar-content" class="flex-grow ">
 			<div class="flex flex-col gap-3">
-				<div class="md:bg-transparent bg-muted  px-6 py-5 flex flex-col gap-5 rounded-b-lg" id="primary-widgets">
+				<div class="md:bg-transparent px-6 py-5 flex flex-col gap-5 rounded-b-lg" id="primary-widgets">
 					<h1 class="text-text-primary font-montserrat font-bold text-3xl md:hidden">Dashboard</h1>
 					<!-- TODO: make it dynamic to page name -->
 					
 					<Clock />
 
 				<div class="flex flex-col gap-1">
-					<Label class="text-text-primary">Network</Label>
+					<Label class="text-text-label font-manrope font-semibold pb-2">NETWORKS</Label>
 					<Networklist></Networklist>
 				</div>
 				</div>
@@ -133,3 +133,6 @@
 	</div>
 </div>
 
+<style>
+	
+</style>

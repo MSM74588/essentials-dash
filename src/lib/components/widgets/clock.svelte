@@ -5,7 +5,7 @@
 
 	import { portalAction, fullScreenAction } from 'svelte-legos';
 
-	import { hotKeyAction } from "svelte-legos";
+	import { hotKeyAction } from 'svelte-legos';
 
 	import Fullscreen from 'svelte-fullscreen';
 
@@ -81,23 +81,32 @@
 <!-- <div class="text-white">{today}</div> -->
 
 <div
-	class="flex w-full flex-row rounded-[11px] border-2 border-widget-border bg-widget px-7 py-5 font-montserrat dark:text-white"
+	class="responsive-container w-full rounded-[11px] border-2 border-widget-border bg-widget px-5 py-4 md:px-7 md:py-5 font-montserrat dark:text-white"
 >
-	<div class="flex-grow">
-		<div class="flex flex-col gap-2">
-			<div>
-				<h1 class="text-2xl font-bold leading-[1.1em]">{day}</h1>
-				<h1 class="text-base font-bold leading-[1.1em]">{currentDate}</h1>
+	<div class="clock-main-container">
+		<div class="clock-container grid flex-row gap-2">
+			
+			<div class="clock">
+				<div class="flex flex-row items-baseline md:gap-0 gap-[2px]">
+					<h1 class="inline text-4xl font-semibold md:text-5xl">{currentTime}</h1>
+					<h1 class="inline text-xl font-bold md:text-3xl">{ampm.toUpperCase()}</h1>
+				</div>
 			</div>
-			<div class="flex flex-row items-baseline gap-0">
-				<h1 class="inline text-7xl md:text-5xl font-bold">{currentTime}</h1>
-				<h1 class="inline text-4xl md:text-3xl font-bold">{ampm.toUpperCase()}</h1>
+			<div class="day-date-container flex flex-col justify-center sm:items-start items-end">
+				<h1 class="md:text-2xl text-xl font-bold leading-[1.1em]">{day}</h1>
+				<h1 class="md:text-base text-xs font-semibold leading-[1.1em] whitespace-nowrap">{currentDate}</h1>
 			</div>
-			<h1>Event Countdown</h1>
+			<!-- FIXME: remove HIDDEN -->
+			<h1 class="hidden md:inline">Event Countdown</h1>
 		</div>
 	</div>
-	<div>
-		<button class="duration-150 hover:scale-125" on:click={fullscreenBtn} use:hotKeyAction={{ shift: true, code: 'KeyF' }}>
+	<!-- FIXME: remove HIDDEN -->
+	<div class="fullscreen-button hidden md:inline">
+		<button
+			class="duration-150 hover:scale-125"
+			on:click={fullscreenBtn}
+			use:hotKeyAction={{ shift: true, code: 'KeyF' }}
+		>
 			<ArrowsOutSimple weight="bold" size={20} />
 		</button>
 	</div>
@@ -126,3 +135,77 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	/* DEBUG */
+	/* * {
+		border: 1px rgba(0, 0, 255, 0.301) solid;
+	} */
+
+	/* if the screen is smaller than 640 (sm) then this will be applied */
+	
+	/* MOBILE UI */
+
+	.clock-container {
+		grid-template-areas:
+			'clock daydate'
+			'clock daydate';
+			grid-template-columns: 1fr min-content;
+
+			
+	}
+
+	.responsive-container {
+		display: grid;
+		grid-template-areas:
+			'main main'
+			'button button';
+		grid-template-columns: 1fr min-content;
+	}
+	
+
+	
+
+	/* if the screen is bigger than 640 (sm) then this will be applied */
+	/* FOR DESKTOP */
+	@media (min-width: 640px) {
+		.clock-container {
+			grid-template-areas:
+				'daydate daydate'
+				'clock clock';
+			grid-template-columns: 1fr min-content;
+		}
+
+		.responsive-container {
+		display: grid;
+		grid-template-areas:
+			'main button'
+			'main button';
+	}
+
+	}
+
+	/* FOR TABLET */
+	/* @media screen and (min-width: 768px) {
+		.clock-container {
+			grid-template-areas:
+				'daydate daydate'
+				'clock clock';
+		}
+	} */
+
+	.clock {
+		grid-area: clock;
+	}
+
+	.day-date-container {
+		grid-area: daydate;
+	}
+
+	.clock-main-container {
+		grid-area: main;
+	}
+	.fullscreen-button {
+		grid-area: button;
+	}
+</style>

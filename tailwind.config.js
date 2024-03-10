@@ -18,10 +18,11 @@ const config = {
 				border: "var(--border) ",
 				input: "var(--input) ",
 				ring: "var(--ring) ",
-				
+
 				background: {
 					DEFAULT: "var(--background)",
-					secondary: "var(--background-secondary)"
+					secondary: "var(--background-secondary)",
+					muted: "var(--background-muted)"
 				},
 				foreground: "var(--foreground) ",
 				primary: {
@@ -63,7 +64,8 @@ const config = {
 				},
 				text: {
 					primary: "var(--text-primary)",
-					secondary: "var(--text-secondary)"
+					secondary: "var(--text-secondary)",
+					label: "var(--text-label)"
 				},
 				sidebar: {
 					accent: "var(--sidebar-accent)"
@@ -80,6 +82,8 @@ const config = {
 				'header': 'Space Grotesk Variable, sans-serif',
 				'montserrat': 'Montserrat Variable, sans-serif',
 				'chivomono': 'Chivo Mono Variable, monospace',
+				'noto': 'Noto Sans Lao Variable, sans-serif',
+				'manrope': 'Manrope Variable, sans-serif',
 			}
 		}
 	},

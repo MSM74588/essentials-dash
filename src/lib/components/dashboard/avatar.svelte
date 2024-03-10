@@ -35,6 +35,6 @@
 </div> -->
 
 <Avatar.Root class="h-9 w-9 md:h-12 md:w-12">
-	<Avatar.Image src={url} alt={username} />
+	<Avatar.Image src={url} alt={username} srcset=""/>
 	<Avatar.Fallback>{username.split(' ').map(name => name[0]).join('').toUpperCase()}</Avatar.Fallback>
   </Avatar.Root>

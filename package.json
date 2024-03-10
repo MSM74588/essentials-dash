@@ -38,7 +38,9 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource-variable/chivo-mono": "^5.0.20",
+		"@fontsource-variable/manrope": "^5.0.19",
 		"@fontsource-variable/montserrat": "^5.0.18",
+		"@fontsource-variable/noto-sans-lao": "^5.0.17",
 		"@fontsource-variable/space-grotesk": "^5.0.17",
 		"bits-ui": "^0.19.5",
 		"clsx": "^2.1.0",

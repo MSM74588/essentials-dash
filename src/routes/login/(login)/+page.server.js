@@ -30,7 +30,7 @@ export const actions = {
         consola.box(email)
 
         if (!email || !password) {
-			return fail(400, { email, message: "Missing username or password", missing: true });
+			return fail(400, { email, missing: "Missing username or password"});
 		}
         // if (!password) {
         //     return fail(400, {})
@@ -49,7 +49,7 @@ export const actions = {
             }
 
             if (err.status == 400) {
-                return fail(400, {message: err.data.message, incorrect: true})
+                return fail(400, {incorrect: err.data.message})
             }
 
             throw error(500, 'Something went wrong')

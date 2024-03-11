@@ -50,6 +50,7 @@
 		"pocketbase": "^0.21.1",
 		"svelte-fullscreen": "^2.0.0",
 		"svelte-legos": "^0.2.2",
+		"svelte-sonner": "^0.3.19",
 		"tailwind-merge": "^2.2.1",
 		"tailwind-variants": "^0.2.0",
 		"tailwindcss-safe-area": "^0.5.1",

@@ -45,6 +45,7 @@
 		"bits-ui": "^0.19.5",
 		"clsx": "^2.1.0",
 		"cmdk-sv": "^0.0.15",
+		"consola": "^3.2.3",
 		"lucide-svelte": "^0.352.0",
 		"pocketbase": "^0.21.1",
 		"svelte-fullscreen": "^2.0.0",

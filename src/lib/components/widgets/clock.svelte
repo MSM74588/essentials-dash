@@ -81,7 +81,7 @@
 <!-- <div class="text-white">{today}</div> -->
 
 <div
-	class="responsive-container w-full rounded-[11px] border-2 border-widget-border bg-widget px-5 py-4 md:px-7 md:py-5 font-montserrat dark:text-white"
+	class="responsive-container w-full rounded-[11px] border-2 border-widget-border bg-[--accent-widget] px-5 py-4 md:px-7 md:py-5 font-montserrat dark:text-white"
 >
 	<div class="clock-main-container">
 		<div class="clock-container grid flex-row gap-2">
